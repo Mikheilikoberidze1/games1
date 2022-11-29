@@ -1,0 +1,56 @@
+video {
+  width: 100%;
+  height:100vh;
+  object-fit: cover;
+}
+.content {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  margin-top: 5%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.gameredorblack{
+ 
+  color: white;
+	font-size: 35px;
+	text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000;
+				  
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 0px 0px 25px 25px rgba(55,54,51, 1);
+  backdrop-filter: blur(5px);
+}
+.showstats{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+}
+.main{
+  width: 100%;
+  height: 100vh;
+}
+.App {
+  text-align: center;
+}
+.redorblackcards {
+  width: 400px;
+}
+.redbutton{
+  float: right;
+  width: 100px;
+}
+.blackbutton{
+  float: left;
+  width: 100px;
+}
+
+
