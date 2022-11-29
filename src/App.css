@@ -7,7 +7,7 @@ video {
   position: absolute;
   width: 100%;
   height: 60%;
-  margin-top: 5%;
+  margin-top: 12%;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ video {
 .gameredorblack{
  
   color: white;
-	font-size: 35px;
+	font-size: 30px;
 	text-shadow: -1px 1px 0 #000,
 				  1px 1px 0 #000,
 				 1px -1px 0 #000;
