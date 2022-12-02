@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import redorblack from '../images/allinone.png';
+import luckywheelimg from '../images/wheel.png'
 import Button from 'react-bootstrap/Button';
   
 function Home (){
@@ -20,32 +21,18 @@ function Home (){
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={luckywheelimg}/>
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>Wheel of Luck</Card.Title>
               <Card.Text>
-                This card has supporting text below as a natural lead-in to
-                additional content.{' '}
+                In this card your fortune decides what kind of scores you are gonna get in total.{' '}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+            <Button href='/luckywheel' variant="primary">Play The Game</Button>
             </Card.Footer>
           </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in
-                to additional content. This card has even longer content than the
-                first to show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
+          
         </CardGroup>
       );}
   

@@ -7,9 +7,9 @@ import greenback from '../images/anothergreenback.jpg'
 function Luckywheel () {
    const [displays, Setdisplays] = useState(0);
    const [total, Settotal] = useState(0);
-   const [numberoftries, Setnumberoftries] = useState(7);
+   const [numberoftries, Setnumberoftries] = useState(6);
    const [clicked, Setclicked] = useState(false);
-   const [idb, Setidb] = useState(1);
+   const [idb, Setidb] = useState(0);
    const [scoreboards, setScoreboards] = useState([]);
     let deg = 0;
     let zoneSize = 45;
@@ -78,7 +78,6 @@ function Luckywheel () {
             <tr>
           <td>{scoreboard.idb}</td>
           <td>{scoreboard.displays}</td>
-          {console.log(scoreboard)}
           </tr>
           ))}
         </tbody>
