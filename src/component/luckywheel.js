@@ -74,7 +74,7 @@ function Luckywheel () {
           </tr>
           </thead>
           <tbody>
-          {scoreboards.map(scoreboard => (
+          {scoreboards.filter(c=>c.idb !== 0).map(scoreboard => (
             <tr>
           <td>{scoreboard.idb}</td>
           <td>{scoreboard.displays}</td>
