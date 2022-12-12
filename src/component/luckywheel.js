@@ -66,8 +66,13 @@ function Luckywheel () {
     const printtable = () => {
       return (
         <div>
+         
       <table className='tablefor'>
         <thead>
+          <tr>
+          <th>Tries Left {numberoftries}</th>
+         <th>Score last roll {displays}</th>
+          </tr>
          <tr>
          <th>Tries</th>
          <th>Score</th>
@@ -91,15 +96,13 @@ function Luckywheel () {
   const app = () => {
     return (
       <div className='concate'>
-        {printtable()}
+       
       <div id="app">  
       <img className="marker" src={arrowimg} />
      <img className="wheel" ref={wheelref} onTransitionEnd={afterTransitioned} src={wheelimg}/>
-      <div className='display'>{displays}</div>
-      <div className='display2'>{numberoftries}</div>
       <img className="button" ref={buttonref} onClick={afterClick} src={buttonimg}/>
-      
-    </div>
+     </div>
+     {printtable()}
     </div>
     );
   } 

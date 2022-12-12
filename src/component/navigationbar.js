@@ -1,14 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
 import logo from '../images/icon.png'
 
 const Navigationbar = () => {
     return (
-        <Navbar bg="dark" variant="dark" className='makenavboy'>
-        <Container>
-          <Navbar.Brand href="/"><img
+      <Navbar bg="dark" variant="dark" className='makenavboy' expand="lg">
+      <Container>
+      <Navbar.Brand href="/"><img
               alt=""
               src={logo}
               width="30"
@@ -16,15 +15,20 @@ const Navigationbar = () => {
               className="d-inline-block align-top"
             />{' '}
             React Mini Games</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <Link to="/highorlow" className="nav-link">High or low</Link>
-          <Link to="/redorblack" className="nav-link">Red or Black</Link>
-          <Link to="/luckywheel" className="nav-link">Lucky Wheel</Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/hangman">Hangman</Nav.Link>
+            <Nav.Link href="/redorblack">Red or Black</Nav.Link>
+            <Nav.Link href="/luckywheel">Wheel of Luck</Nav.Link>
+            
           </Nav>
-        </Container>
-      </Navbar>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     );
 }
  
+
 export default Navigationbar;
-<Link to="/" className="nav-link">Home</Link>
