@@ -4,9 +4,18 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { AppBar, Box, Grid, Toolbar, Typography,Container,Button} from '@mui/material';
 import { useEffect, useState } from 'react';
 import { getRandomWord, isAllowedCharacter } from '../utils/client';
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
+
+
 const darkTheme = createTheme({
     palette: {
       mode: 'dark',
+    },
+  });
+  const lighTheme = createTheme({
+    palette: {
+      mode: 'light',
     },
   });
   
@@ -26,6 +35,7 @@ function Hangman (){
   const [currentState, setCurrentState] = useState();
   const [mistakes, setMistakes] = useState([]);
   const [changeimg,setChangeimg]= useState(0);
+  const { darkMode } = useContext(ThemeContext);
  
 useEffect(() => {
     const word = getRandomWord();
@@ -69,7 +79,7 @@ useEffect(() => {
 
   const showresult=(yay)=>{
     return (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
       <CssBaseline />
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
@@ -94,8 +104,8 @@ useEffect(() => {
   );
   }
   const showresultsbefore=()=>{
-  return (
-    <ThemeProvider theme={darkTheme}>
+    return (
+      <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
     <CssBaseline />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">

@@ -5,12 +5,15 @@ import redorblackimg from '../images/allinone.png';
 import luckywheelimg from '../images/wheel.png';
 import hangmanimg from '../images/hangmanback.jpg';
 import Button from 'react-bootstrap/Button';
-const style = {width : '30px'};
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
+
   
 function Home (){
+  const { darkMode } = useContext(ThemeContext);
     return (
         <CardGroup>
-          <Card className="bg-dark text-white">
+          <Card className={darkMode ? "bg-dark text-white" : "bg-light text-black"}>
             <Card.Img variant='top' src={redorblackimg}/>
             <Card.Body>
               <Card.Title>Red or Black</Card.Title>
@@ -21,7 +24,7 @@ function Home (){
             </Card.Body>
            
           </Card>
-          <Card className="bg-dark text-white">
+          <Card className={darkMode ? "bg-dark text-white" : "bg-light text-black"}>
             <Card.Img variant='top' src={luckywheelimg}/>
             <Card.Body>
               <Card.Title>Wheel of Luck</Card.Title>
@@ -32,7 +35,7 @@ function Home (){
             </Card.Body>
             
           </Card>
-          <Card className="bg-dark text-white">
+          <Card className={darkMode ? "bg-dark text-white" : "bg-light text-black"}>
             <Card.Img variant='top' src={hangmanimg}/>
             <Card.Body>
               <Card.Title>HangMan</Card.Title>

@@ -2,10 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../images/icon.png'
+import ThemeBotton from "../ThemeButton";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 
 const Navigationbar = () => {
+  const { darkMode } = useContext(ThemeContext);
     return (
-      <Navbar bg="dark" variant="dark" className='makenavboy' expand="lg">
+      <Navbar bg={darkMode ? "dark" : "light"} variant={darkMode ? "dark" : "light"} className='makenavboy' expand="lg">
       <Container>
       <Navbar.Brand href="/"><img
               alt=""
@@ -26,6 +30,7 @@ const Navigationbar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <ThemeBotton />
     </Navbar>
     );
 }

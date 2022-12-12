@@ -6,11 +6,12 @@ import Redorblack from './component/redorblack';
 import Home from './component/home';
 import './App.css';
 import Navigationbar from './component/navigationbar';
-
+import { ThemeProvider } from "./ThemeContext";
   
 class App extends Component {
   render() {
     return (
+      <ThemeProvider>
        <Router>
          <div>
          <Navigationbar />
@@ -22,6 +23,7 @@ class App extends Component {
           </Routes>
           </div>
        </Router>
+       </ThemeProvider>
    );
   }
 }
