@@ -26,11 +26,12 @@ const Navigationbar = () => {
             <Nav.Link href="/hangman">Hangman</Nav.Link>
             <Nav.Link href="/redorblack">Red or Black</Nav.Link>
             <Nav.Link href="/luckywheel">Wheel of Luck</Nav.Link>
+            <Nav.Link> <ThemeBotton /></Nav.Link>
             
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <ThemeBotton />
+      
     </Navbar>
     );
 }

@@ -10,11 +10,11 @@ function ThemeBotton() {
     <button
       className={
         darkMode
-          ? "btn btn-floating fa fa-toggle-on"
-          : "btn btn-floating fa fa-toggle-off"
+          ? "btnmode"
+          : "btnmode2"
       }
       onClick={handleTheme}
-    ></button>
+    ><div className={darkMode? "nomoon" : "moon"}></div></button>
   );
 }
 
