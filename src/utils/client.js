@@ -11,7 +11,7 @@ export function getRandomArbitrary(min, max) {
 }
 
 export function isAllowedCharacter(symbol) {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz ';
     return alphabet.indexOf(symbol) > -1;
 }
 export function getWordList() {

@@ -37,6 +37,12 @@ function Hangman (){
   const [changeimg,setChangeimg]= useState(0);
   const { darkMode } = useContext(ThemeContext);
  
+   
+ document.onkeyup = function(event) {
+  processKeyPress(event.key);
+ }
+  
+
 useEffect(() => {
     const word = getRandomWord();
     setWord(word.toLowerCase());
@@ -53,6 +59,9 @@ useEffect(() => {
     } 
     setCurrentState(initialState);
   }, [word]);
+  
+  
+  
 
   const processKeyPress = (key) => {
     if (!isAllowedCharacter(key)) {
@@ -77,8 +86,22 @@ useEffect(() => {
     setCurrentState(newState);
   }
 
+  
+  function generateButtons() {
+    return "abcdefghijklmnopqrstuvwxyz ".split("").map(letter => (
+      <button
+        className='btn btn-lg btn-primary m-2 '
+        onClick={()=>processKeyPress(letter)}
+        
+        >
+        {letter}
+      </button>
+    ));
+  }
+
   const showresult=(yay)=>{
     return (
+     
       <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
       <CssBaseline />
         <Box sx={{ flexGrow: 1 }}>
@@ -105,6 +128,7 @@ useEffect(() => {
   }
   const showresultsbefore=()=>{
     return (
+      <div>
       <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
     <CssBaseline />
       <Box sx={{ flexGrow: 1 }}>
@@ -118,14 +142,23 @@ useEffect(() => {
       <Grid item xs={6} style={styles.word}>
       <Typography>Guess car manufacturer OR get HANGED</Typography>
           {currentState}<br/>
-          <Typography>Mistakes: {mistakes.length}</Typography>
+          <Typography> {mistakes.length} Mistakes: {mistakes} </Typography>
         </Grid>
       </Grid>
     </main>
     <Container fixed style={{'justifyContent': 'center','alignItems': 'center','display': 'flex','marginTop':'30px'}}>
     <img src={require(`../images/${changeimg}.jpg`)} alt="Hangman Logo" style={{height:'400px'}}/>
     </Container>
+    <Grid container spacing={2}>
+      <Grid item xs={3}></Grid>
+      <Grid item xs={6}>
+      {generateButtons()}<br/>
+          <Typography> </Typography>
+        </Grid>
+      </Grid>
+    
   </ThemeProvider>
+  </div>
 );
 
   }
@@ -135,12 +168,6 @@ useEffect(() => {
     }
     
   },[mistakes,changeimg])
-  
-  
- 
-  document.onkeyup = function(event) {
-    processKeyPress(event.key);
-  }
   
 
 if(mistakes.length>=6){
@@ -152,5 +179,5 @@ else{
  return showresultsbefore();
 }
 }
-  
+
 export default Hangman;
