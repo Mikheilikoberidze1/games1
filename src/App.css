@@ -157,7 +157,7 @@ video {
 }
 @media only screen and (max-width: 800px) {
   #app{
-    width: auto;
+    width: 90%;
     height: auto;
   }
 }
