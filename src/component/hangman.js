@@ -90,9 +90,9 @@ useEffect(() => {
   function generateButtons() {
     return "abcdefghijklmnopqrstuvwxyz ".split("").map(letter => (
       <button
-        className='btn btn-lg btn-primary m-2 '
+        className='btn btn-primary m-1'
         onClick={()=>processKeyPress(letter)}
-        
+       
         >
         {letter}
       </button>
@@ -136,9 +136,9 @@ useEffect(() => {
         
       </AppBar>
     </Box>
+    <div className='hangmanmaindiv'>
     <main>
     <Grid container spacing={2}>
-      <Grid item xs={3}></Grid>
       <Grid item xs={6} style={styles.word}>
       <Typography>Guess car manufacturer OR get HANGED</Typography>
           {currentState}<br/>
@@ -149,14 +149,10 @@ useEffect(() => {
     <Container fixed style={{'justifyContent': 'center','alignItems': 'center','display': 'flex','marginTop':'30px'}}>
     <img src={require(`../images/${changeimg}.jpg`)} alt="Hangman Logo" style={{height:'400px'}}/>
     </Container>
-    <Grid container spacing={2}>
-      <Grid item xs={3}></Grid>
-      <Grid item xs={6}>
-      {generateButtons()}<br/>
-          <Typography> </Typography>
-        </Grid>
+    <Grid container spacing={2} className='hangmankeyboard'>
+      {generateButtons()}
       </Grid>
-    
+      </div>
   </ThemeProvider>
   </div>
 );
