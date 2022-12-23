@@ -149,6 +149,9 @@ useEffect(() => {
     <Grid container spacing={2} className='currentstate'>
       {currentState}<br/>
       </Grid>
+      <Grid container spacing={2} className='mistakes'>
+       Mistakes: {mistakes.length}<br/>
+      </Grid>
     </main>
     <Container fixed style={{'justifyContent': 'center','alignItems': 'center','display': 'flex','marginTop':'30px'}}>
     <img src={require(`../images/${changeimg}.jpg`)} alt="Hangman Logo" style={{height:'400px'}}/>
