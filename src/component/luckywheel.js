@@ -127,7 +127,6 @@ function Luckywheel () {
   return (
     
     <div style={{ backgroundImage: `url(${greenback})`,height:'100vh',
-    
     fontSize:'50px',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',}}>

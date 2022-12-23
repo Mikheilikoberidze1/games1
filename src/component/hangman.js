@@ -32,7 +32,7 @@ const darkTheme = createTheme({
   })
 function Hangman (){
     const [word, setWord] = useState();
-  const [currentState, setCurrentState] = useState();
+  const [currentState, setCurrentState] = useState([]);
   const [mistakes, setMistakes] = useState([]);
   const [changeimg,setChangeimg]= useState(0);
   const { darkMode } = useContext(ThemeContext);
@@ -55,14 +55,12 @@ useEffect(() => {
     }
     let initialState = '';
     for (let i = 0; i < word.length; i++) {
-      initialState = `${initialState}_`;
+      if(word[i] === ' '||word[i]==='-') initialState = `${initialState}${word[i]}`; 
+      else initialState = `${initialState}_`;
     } 
     setCurrentState(initialState);
   }, [word]);
   
-  
-  
-
   const processKeyPress = (key) => {
     if (!isAllowedCharacter(key)) {
       return;
@@ -88,42 +86,52 @@ useEffect(() => {
 
   
   function generateButtons() {
-    return "abcdefghijklmnopqrstuvwxyz ".split("").map(letter => (
-      <button
-        className='btn btn-primary m-1'
-        onClick={()=>processKeyPress(letter)}
-       
-        >
-        {letter}
-      </button>
+    const rows = [
+      "qwertyuiop",
+      "asdfghjkl",
+      "zxcvbnm"
+    ];
+  
+    return rows.map(row => (
+      <div className="row">
+        {row.split("").map(letter => (
+          <button
+            className='btn btn-primary hangmanbutton'
+            disabled={mistakes.includes(letter) || currentState.includes(letter)}
+            onClick={() => processKeyPress(letter)}
+          >
+            {letter}
+          </button>
+        ))}
+      </div>
     ));
   }
 
   const showresult=(yay)=>{
     return (
-     
+      <div>
       <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
-      <CssBaseline />
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-          
-        </AppBar>
-      </Box>
-      <main>
-      <Grid container spacing={2}>
-        <Grid item xs={3}></Grid>
-          <Grid item xs={6} style={styles.word}>
-            {yay}<br/>
-          </Grid>
-        </Grid>
-      </main>
+    <CssBaseline />
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+        
+      </AppBar>
+    </Box>
+    <div className='hangmanmaindiv'>
+    <main>
+    <Grid container spacing={2} className='currentstate'>
+      {yay}<br/>
+      </Grid>
+    </main>
       <Container fixed style={{'justifyContent': 'center','alignItems': 'center','display': 'flex','marginTop': '30px','flexDirection':'column'}}>
       <img src={require(`../images/${changeimg}.jpg`)} alt="Hangman Logo" style={{height:'400px'}}/>
       <Button style={{'marginTop':'15px'}} variant="contained" color="success" onClick={()=>{setMistakes([]);const word = getRandomWord();setWord(word.toLowerCase());console.log(word);}} >
       Restart
       </Button>
       </Container>
+      </div>
     </ThemeProvider>
+    </div>
   );
   }
   const showresultsbefore=()=>{
@@ -138,20 +146,16 @@ useEffect(() => {
     </Box>
     <div className='hangmanmaindiv'>
     <main>
-    <Grid container spacing={2}>
-      <Grid item xs={6} style={styles.word}>
-      <Typography>Guess car manufacturer OR get HANGED</Typography>
-          {currentState}<br/>
-          <Typography> {mistakes.length} Mistakes: {mistakes} </Typography>
-        </Grid>
+    <Grid container spacing={2} className='currentstate'>
+      {currentState}<br/>
       </Grid>
     </main>
     <Container fixed style={{'justifyContent': 'center','alignItems': 'center','display': 'flex','marginTop':'30px'}}>
     <img src={require(`../images/${changeimg}.jpg`)} alt="Hangman Logo" style={{height:'400px'}}/>
     </Container>
-    <Grid container spacing={2} className='hangmankeyboard'>
+    <div className="keyboard">
       {generateButtons()}
-      </Grid>
+      </div>
       </div>
   </ThemeProvider>
   </div>
