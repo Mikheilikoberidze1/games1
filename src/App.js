@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <ThemeProvider>
        <Router>
-         <div>
+        
          <Navigationbar />
            <Routes>
            <Route exact path='/' element={< Home />}></Route>
@@ -21,7 +21,7 @@ class App extends Component {
                  <Route exact path='/redorblack' element={< Redorblack />}></Route>
                  <Route exact path='/luckywheel' element={< Luckywheel />}></Route>
           </Routes>
-          </div>
+          
        </Router>
        </ThemeProvider>
    );

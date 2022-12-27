@@ -12,6 +12,7 @@ import { useContext } from "react";
 function Home (){
   const { darkMode } = useContext(ThemeContext);
     return (
+      <div>
         <CardGroup>
           <Card className={darkMode ? "bg-dark text-white" : "bg-light text-black"}>
             <Card.Img variant='top' src={redorblackimg}/>
@@ -48,6 +49,7 @@ function Home (){
           </Card>
           
         </CardGroup>
+        </div>
       );}
   
 export default Home;

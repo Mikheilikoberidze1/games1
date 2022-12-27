@@ -303,11 +303,7 @@ position: relative;
   flex-direction: column;
   align-items: center;
 }
-.hangmanbutton{
-  flex: 1;
-  height: 50px;
-  margin: 0.25rem!important;
-}
+
 .keyboard {
   display: flex;
   flex-wrap: wrap;
@@ -322,6 +318,11 @@ position: relative;
   flex-wrap: nowrap!important;
   width: 100%;
   --bs-gutter-x: 0rem!important;
+}
+.hangmanbutton{
+  flex: 1;
+  height: auto;
+  margin: 0.25rem!important;
 }
 
 @media (max-width: 600px) {
@@ -344,3 +345,11 @@ position: relative;
   margin-top: 3px!important;
 }
 
+@media (max-height: 800px) {
+  .hangmanbutton {
+    margin: 0.035rem!important;
+  }
+  .currentstate{
+    font-size: 200%;
+  }
+}

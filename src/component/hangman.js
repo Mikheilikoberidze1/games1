@@ -136,7 +136,6 @@ useEffect(() => {
   }
   const showresultsbefore=()=>{
     return (
-      <div>
       <ThemeProvider theme={darkMode ? darkTheme : lighTheme}>
     <CssBaseline />
       <Box sx={{ flexGrow: 1 }}>
@@ -161,7 +160,6 @@ useEffect(() => {
       </div>
       </div>
   </ThemeProvider>
-  </div>
 );
 
   }
